@@ -1,17 +1,12 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+  import Navbar from './components/Navbar.vue';
+  import Hero from './components/Hero.vue';
+  import HomeCard from './components/HomeCard.vue';
 </script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <Navbar></Navbar>
+  <Hero title="Test Title" subtitle="Test Subtitle"></Hero>
+  <HomeCard></HomeCard>
 </template>
 
 <style scoped>
