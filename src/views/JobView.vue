@@ -7,12 +7,29 @@ import { useToast } from "vue-toastification";
 import BackButton from "../components/BackButton.vue";
 
 const route = useRoute();
+const router = useRouter();
+
+const toast = useToast();
 const jobId = route.params.id;
 
 const state = reactive({
   job: {},
   isLoading: true,
 });
+
+const deleteJob = async () => {
+  try {
+    const confirm = window.confirm("Are you sure?");
+    if (confirm) {
+      await axios.delete(`/api/jobs/${jobId}`);
+      toast.success("Job is deleted");
+      router.push("/jobs");
+    }
+  } catch (error) {
+    console.error("Error deleting job", error);
+    toast.error("Error deleting job");
+  }
+};
 
 onMounted(async () => {
   try {
